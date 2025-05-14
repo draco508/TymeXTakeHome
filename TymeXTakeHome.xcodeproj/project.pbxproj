@@ -1,0 +1,574 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		CF801FD32DD44A94008E3DAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF801FB42DD44A93008E3DAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF801FBB2DD44A93008E3DAF;
+			remoteInfo = TymeXTakeHome;
+		};
+		CF801FDD2DD44A94008E3DAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF801FB42DD44A93008E3DAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CF801FBB2DD44A93008E3DAF;
+			remoteInfo = TymeXTakeHome;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CF801FBC2DD44A93008E3DAF /* TymeXTakeHome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TymeXTakeHome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF801FD22DD44A94008E3DAF /* TymeXTakeHomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TymeXTakeHomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF801FDC2DD44A94008E3DAF /* TymeXTakeHomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TymeXTakeHomeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		CF801FE42DD44A94008E3DAF /* Exceptions for "TymeXTakeHome" folder in "TymeXTakeHome" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = CF801FBB2DD44A93008E3DAF /* TymeXTakeHome */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		CF801FBE2DD44A93008E3DAF /* TymeXTakeHome */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				CF801FE42DD44A94008E3DAF /* Exceptions for "TymeXTakeHome" folder in "TymeXTakeHome" target */,
+			);
+			path = TymeXTakeHome;
+			sourceTree = "<group>";
+		};
+		CF801FD52DD44A94008E3DAF /* TymeXTakeHomeTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TymeXTakeHomeTests;
+			sourceTree = "<group>";
+		};
+		CF801FDF2DD44A94008E3DAF /* TymeXTakeHomeUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TymeXTakeHomeUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CF801FB92DD44A93008E3DAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF801FCF2DD44A94008E3DAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF801FD92DD44A94008E3DAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CF801FB32DD44A93008E3DAF = {
+			isa = PBXGroup;
+			children = (
+				CF801FBE2DD44A93008E3DAF /* TymeXTakeHome */,
+				CF801FD52DD44A94008E3DAF /* TymeXTakeHomeTests */,
+				CF801FDF2DD44A94008E3DAF /* TymeXTakeHomeUITests */,
+				CF801FBD2DD44A93008E3DAF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CF801FBD2DD44A93008E3DAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF801FBC2DD44A93008E3DAF /* TymeXTakeHome.app */,
+				CF801FD22DD44A94008E3DAF /* TymeXTakeHomeTests.xctest */,
+				CF801FDC2DD44A94008E3DAF /* TymeXTakeHomeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CF801FBB2DD44A93008E3DAF /* TymeXTakeHome */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF801FE52DD44A94008E3DAF /* Build configuration list for PBXNativeTarget "TymeXTakeHome" */;
+			buildPhases = (
+				CF801FB82DD44A93008E3DAF /* Sources */,
+				CF801FB92DD44A93008E3DAF /* Frameworks */,
+				CF801FBA2DD44A93008E3DAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				CF801FBE2DD44A93008E3DAF /* TymeXTakeHome */,
+			);
+			name = TymeXTakeHome;
+			packageProductDependencies = (
+			);
+			productName = TymeXTakeHome;
+			productReference = CF801FBC2DD44A93008E3DAF /* TymeXTakeHome.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CF801FD12DD44A94008E3DAF /* TymeXTakeHomeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF801FEA2DD44A94008E3DAF /* Build configuration list for PBXNativeTarget "TymeXTakeHomeTests" */;
+			buildPhases = (
+				CF801FCE2DD44A94008E3DAF /* Sources */,
+				CF801FCF2DD44A94008E3DAF /* Frameworks */,
+				CF801FD02DD44A94008E3DAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF801FD42DD44A94008E3DAF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CF801FD52DD44A94008E3DAF /* TymeXTakeHomeTests */,
+			);
+			name = TymeXTakeHomeTests;
+			packageProductDependencies = (
+			);
+			productName = TymeXTakeHomeTests;
+			productReference = CF801FD22DD44A94008E3DAF /* TymeXTakeHomeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CF801FDB2DD44A94008E3DAF /* TymeXTakeHomeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CF801FED2DD44A94008E3DAF /* Build configuration list for PBXNativeTarget "TymeXTakeHomeUITests" */;
+			buildPhases = (
+				CF801FD82DD44A94008E3DAF /* Sources */,
+				CF801FD92DD44A94008E3DAF /* Frameworks */,
+				CF801FDA2DD44A94008E3DAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF801FDE2DD44A94008E3DAF /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				CF801FDF2DD44A94008E3DAF /* TymeXTakeHomeUITests */,
+			);
+			name = TymeXTakeHomeUITests;
+			packageProductDependencies = (
+			);
+			productName = TymeXTakeHomeUITests;
+			productReference = CF801FDC2DD44A94008E3DAF /* TymeXTakeHomeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CF801FB42DD44A93008E3DAF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					CF801FBB2DD44A93008E3DAF = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					CF801FD12DD44A94008E3DAF = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = CF801FBB2DD44A93008E3DAF;
+					};
+					CF801FDB2DD44A94008E3DAF = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = CF801FBB2DD44A93008E3DAF;
+					};
+				};
+			};
+			buildConfigurationList = CF801FB72DD44A93008E3DAF /* Build configuration list for PBXProject "TymeXTakeHome" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF801FB32DD44A93008E3DAF;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = CF801FBD2DD44A93008E3DAF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CF801FBB2DD44A93008E3DAF /* TymeXTakeHome */,
+				CF801FD12DD44A94008E3DAF /* TymeXTakeHomeTests */,
+				CF801FDB2DD44A94008E3DAF /* TymeXTakeHomeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF801FBA2DD44A93008E3DAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF801FD02DD44A94008E3DAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF801FDA2DD44A94008E3DAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CF801FB82DD44A93008E3DAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF801FCE2DD44A94008E3DAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CF801FD82DD44A94008E3DAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CF801FD42DD44A94008E3DAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF801FBB2DD44A93008E3DAF /* TymeXTakeHome */;
+			targetProxy = CF801FD32DD44A94008E3DAF /* PBXContainerItemProxy */;
+		};
+		CF801FDE2DD44A94008E3DAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CF801FBB2DD44A93008E3DAF /* TymeXTakeHome */;
+			targetProxy = CF801FDD2DD44A94008E3DAF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CF801FE62DD44A94008E3DAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q7VTK69WVB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TymeXTakeHome/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nguyen.nv.TymeXTakeHome;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CF801FE72DD44A94008E3DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q7VTK69WVB;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TymeXTakeHome/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nguyen.nv.TymeXTakeHome;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CF801FE82DD44A94008E3DAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CF801FE92DD44A94008E3DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF801FEB2DD44A94008E3DAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q7VTK69WVB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nguyen.nv.TymeXTakeHomeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TymeXTakeHome.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TymeXTakeHome";
+			};
+			name = Debug;
+		};
+		CF801FEC2DD44A94008E3DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q7VTK69WVB;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nguyen.nv.TymeXTakeHomeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TymeXTakeHome.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/TymeXTakeHome";
+			};
+			name = Release;
+		};
+		CF801FEE2DD44A94008E3DAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q7VTK69WVB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nguyen.nv.TymeXTakeHomeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TymeXTakeHome;
+			};
+			name = Debug;
+		};
+		CF801FEF2DD44A94008E3DAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Q7VTK69WVB;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nguyen.nv.TymeXTakeHomeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TymeXTakeHome;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CF801FB72DD44A93008E3DAF /* Build configuration list for PBXProject "TymeXTakeHome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF801FE82DD44A94008E3DAF /* Debug */,
+				CF801FE92DD44A94008E3DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF801FE52DD44A94008E3DAF /* Build configuration list for PBXNativeTarget "TymeXTakeHome" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF801FE62DD44A94008E3DAF /* Debug */,
+				CF801FE72DD44A94008E3DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF801FEA2DD44A94008E3DAF /* Build configuration list for PBXNativeTarget "TymeXTakeHomeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF801FEB2DD44A94008E3DAF /* Debug */,
+				CF801FEC2DD44A94008E3DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CF801FED2DD44A94008E3DAF /* Build configuration list for PBXNativeTarget "TymeXTakeHomeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF801FEE2DD44A94008E3DAF /* Debug */,
+				CF801FEF2DD44A94008E3DAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CF801FB42DD44A93008E3DAF /* Project object */;
+}
