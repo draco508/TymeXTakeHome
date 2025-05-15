@@ -1,0 +1,1691 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios14.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name Base_swift
+@_exported import Base_swift
+import Foundation
+import QuartzCore
+import Swift
+import UIKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+open class ConcurrentList<E> : Base_swift.PCollection {
+  public typealias T = E
+  public init()
+  public func size() -> Swift.Int
+  public func element(at index: Swift.Int) -> E
+  public func add(element: E)
+  public func add(index: Swift.Int, element: E)
+  public func addAll(array: [E])
+  public func remove(index: Swift.Int) -> E
+  public func remove(element: E) -> Swift.Int
+  public func removeAll()
+  public func contain(element: E) -> Swift.Bool
+  public func find(filter: (E) -> Swift.Bool) -> (index: Swift.Int, element: E)?
+  public func findAll(filter: (E) -> Swift.Bool) -> [(index: Swift.Int, element: E)]
+  public func findValues(filter: (E) -> Swift.Bool) -> [E]
+  public func enumerated() -> Swift.EnumeratedSequence<Swift.Array<E>>
+  public func iterator(handler: (Base_swift.Iterator<Base_swift.ConcurrentList<E>.T>) -> Swift.Void)
+  public func isEmpty() -> Swift.Bool
+  public func toArray() -> [E]
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class StatePageDataSource : ObjectiveC.NSObject, UIKit.UIPageViewControllerDataSource, UIKit.UIPageViewControllerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc open func pageViewController(_ pageViewController: UIKit.UIPageViewController, viewControllerBefore viewController: UIKit.UIViewController) -> UIKit.UIViewController?
+  @_Concurrency.MainActor(unsafe) @objc open func pageViewController(_ pageViewController: UIKit.UIPageViewController, viewControllerAfter viewController: UIKit.UIViewController) -> UIKit.UIViewController?
+  @_Concurrency.MainActor(unsafe) @objc open func pageViewController(_ pageViewController: UIKit.UIPageViewController, didFinishAnimating finished: Swift.Bool, previousViewControllers: [UIKit.UIViewController], transitionCompleted completed: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc open func presentationCount(for pageViewController: UIKit.UIPageViewController) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) open func getCount() -> Swift.Int
+  @_Concurrency.MainActor(unsafe) open func createPage(at index: Swift.Int) -> UIKit.UIViewController?
+  @_Concurrency.MainActor(unsafe) open func getPage(at index: Swift.Int) -> UIKit.UIViewController?
+  @_Concurrency.MainActor(unsafe) open func setCurrentPage(at index: Swift.Int, pageVC: UIKit.UIViewController)
+  @_Concurrency.MainActor(unsafe) open func release()
+  @_Concurrency.MainActor(unsafe) open func getLimitedOffset() -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class BasePresenter : Base_swift.PPresenter {
+  public func presenterReady()
+  public func presenterRelease()
+  public func setMVPView(view: any Base_swift.PView)
+  public func onInterceptCommand(command: any Base_swift.PCommand) -> Swift.Bool
+  public func executeCommand(command: any Base_swift.PCommand)
+  public func equal(to other: Any) -> Swift.Bool
+  public func onExecuteCommand(command: any Base_swift.PCommand)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class RoundedView : UIKit.UIView {
+  public struct Border {
+    public static let LEFT: Swift.UInt8
+    public static let TOP: Swift.UInt8
+    public static let RIGHT: Swift.UInt8
+    public static let BOTTOM: Swift.UInt8
+    public static let ALL: Swift.UInt8
+    public static let NONE: Swift.UInt8
+  }
+  public struct Corner {
+    public static let TOP_LEFT: Swift.UInt8
+    public static let TOP_RIGHT: Swift.UInt8
+    public static let BOTTOM_RIGHT: Swift.UInt8
+    public static let BOTTOM_LEFT: Swift.UInt8
+    public static let ALL: Swift.UInt8
+    public static let NONE: Swift.UInt8
+  }
+  public struct Shadow {
+    public static let LEFT: Swift.UInt8
+    public static let TOP: Swift.UInt8
+    public static let RIGHT: Swift.UInt8
+    public static let BOTTOM: Swift.UInt8
+    public static let ALL: Swift.UInt8
+    public static let NONE: Swift.UInt8
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) open func setCorner(type: Swift.UInt8)
+  @_Concurrency.MainActor(unsafe) open func setBorder(type: Swift.UInt8)
+  @_Concurrency.MainActor(unsafe) open func setCornerRadius(radius: Swift.Int)
+  @_Concurrency.MainActor(unsafe) open func setStrockThickness(thickness: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) open func setStrockColor(color: CoreGraphics.CGColor)
+  @_Concurrency.MainActor(unsafe) open func setShadowSide(shadow: Swift.UInt8)
+  @_Concurrency.MainActor(unsafe) open func setShadowOpacity(opacity: Swift.Float)
+  @_Concurrency.MainActor(unsafe) open func setShadowRadius(radius: Swift.Float)
+  @_Concurrency.MainActor(unsafe) open func makeChange()
+  @objc deinit
+}
+public struct HashableBox : Swift.Hashable {
+  public static func == (lhs: Base_swift.HashableBox, rhs: Base_swift.HashableBox) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+open class StateMachine {
+  public var msgHandler: (([Any?]) -> Swift.Void)?
+  @objc deinit
+  public init()
+  public func initState(name: Swift.String)
+  public func quit()
+  public func addState(name: Swift.String, state: Base_swift.State)
+  public func addState(name: Swift.String, state: Base_swift.State, parentName: Swift.String?)
+  public func removeState(state: Base_swift.State)
+  public func removeState(name: Swift.String)
+  public func transitTo(name: Swift.String)
+  public func sendMessage(params: Any?...)
+  public func isEmpty() -> Swift.Bool
+  public func getCurrentStateName() -> Swift.String?
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class MessageDispatcher : Base_swift.BaseDispatcher<Base_swift.Message2> {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class Dispatcher<E> {
+  @objc deinit
+}
+public protocol PEqual : AnyObject {
+  func equal(to other: Any) -> Swift.Bool
+}
+extension ObjectiveC.NSObject : Base_swift.PEqual {
+  public func equal(to other: Any) -> Swift.Bool
+}
+public protocol PStack {
+  associatedtype T
+  func push(value: Self.T)
+  func pop() -> Self.T
+  func peek() -> Self.T
+  func size() -> Swift.Int
+  func remove(index: Swift.Int)
+  func isEmpty() -> Swift.Bool
+  func toArray() -> [Self.T]
+  func remove(element: Self.T)
+}
+@_hasMissingDesignatedInitializers open class ActionManagerBuilder : Base_swift.PActionBuilder {
+  public func setRunMode(mode: Base_swift.RUN_MODE) -> any Base_swift.PActionBuilder
+  public func add(action: Base_swift.BaseAction, input: Any, callback: Base_swift.ActionCallback?, scheduler: any Base_swift.PActionScheduler) -> any Base_swift.PActionBuilder
+  public func onCompound(callback: Base_swift.CompoundCallback?) -> any Base_swift.PActionBuilder
+  public func run()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ActionManager : Base_swift.PActionManager {
+  @objc deinit
+  public func equal(to other: Any) -> Swift.Bool
+  public func getID() -> Swift.String
+  public func getStatus() -> Base_swift.ACTION_MANAGER_STATUS
+  public func setStatus(status: Base_swift.ACTION_MANAGER_STATUS)
+  public func pause()
+  public func resume()
+  public func release()
+  public func releaseAndStopAllAction()
+  public func stopAction(action: Base_swift.BaseAction)
+  public func stopAction(actionID: Swift.String)
+  public func stopAction<T>(actionType: T.Type) where T : Base_swift.BaseAction
+  public func execute(action: Base_swift.BaseAction, input: Any, callback: Base_swift.ActionCallback?, scheduler: any Base_swift.PActionScheduler) -> any Base_swift.PActionBuilder
+  public func registerCallback(actionID: Swift.String, callback: Base_swift.ActionCallback)
+  public func executeAction<I, O>(action: Base_swift.Action<I, O>, input: I, callback: Base_swift.ActionCallback?, scheduler: any Base_swift.PActionScheduler) -> any Base_swift.PActionBuilder
+  public func createActionQueue() -> Base_swift.ActionQueue
+  public func makeCallbackInfo(callback: Base_swift.ActionCallback) -> Base_swift.ActionCallbackInfo
+}
+public protocol PLifeCycle : Base_swift.PEqual {
+}
+public protocol PPrepareResume : Base_swift.PLifeCycle {
+  func prepareResume() -> Swift.Bool
+}
+public protocol PResume : Base_swift.PLifeCycle {
+  func resume() -> Swift.Bool
+}
+public protocol PPreparePause : Base_swift.PLifeCycle {
+  func preparePause() -> Swift.Bool
+}
+public protocol PPause : Base_swift.PLifeCycle {
+  func pause() -> Swift.Bool
+}
+public protocol PDestroy : Base_swift.PLifeCycle {
+  func destroy() -> Swift.Bool
+}
+public protocol PObserver : Base_swift.PEqual {
+  func onChanged(data: Any?)
+}
+extension Base_swift.PObserver {
+  public func equal(to other: Any) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class GroupCollectionDataSource : Base_swift.GroupDataSource, UIKit.UICollectionViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc open func numberOfSections(in collectionView: UIKit.UICollectionView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc open func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc open func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  @_Concurrency.MainActor(unsafe) @objc open func collectionView(_ collectionView: UIKit.UICollectionView, viewForSupplementaryElementOfKind kind: Swift.String, at indexPath: Foundation.IndexPath) -> UIKit.UICollectionReusableView
+  @_Concurrency.MainActor(unsafe) open func initCell(cell: Base_swift.BaseGroupCollectionCell, indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) open func registerDataSource(collectionView: UIKit.UICollectionView)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class ActionQueueImpl : Base_swift.ActionQueue {
+  override public func onStartAction(action: Base_swift.BaseAction)
+  override public func onSuccess(action: Base_swift.BaseAction)
+  override public func onError(action: Base_swift.BaseAction)
+  override public func onInterruptAction(action: Base_swift.BaseAction)
+  override public func onProgressAction(action: Base_swift.BaseAction)
+  override public func onResume(manager: any Base_swift.PActionManager)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseTableViewDataSource : Base_swift.ListViewDataSource, UIKit.UITableViewDataSource {
+  @objc override dynamic public init()
+  @_Concurrency.MainActor(unsafe) public init(data: [Any?]?)
+  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  override open func getCellType(at position: Swift.Int) -> Swift.AnyClass
+  @_Concurrency.MainActor(unsafe) open func initCell(cell: Base_swift.BaseTableCell, indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) open func updateCell(cell: Base_swift.BaseTableCell, indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) open func registerDataSource(tableView: UIKit.UITableView)
+  @_Concurrency.MainActor(unsafe) open func register(tableView: UIKit.UITableView, cellType: Swift.AnyClass)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable @_Concurrency.MainActor(unsafe) open class UIInsetLabel : UIKit.UILabel {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func textRect(forBounds bounds: CoreFoundation.CGRect, limitedToNumberOfLines numberOfLines: Swift.Int) -> CoreFoundation.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func drawText(in rect: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class EventInfo {
+  public var eventType: Base_swift.NotificationEvent.Type!
+  public var subscriberType: (any Base_swift.PEventHandler.Type)!
+  public var priority: Swift.Int
+  public func comfortSubscriber(subscriber: any Base_swift.PEventHandler) -> Swift.Bool
+  @objc deinit
+}
+public struct ActionHandlerMessage {
+}
+public enum ACTION_MSG_TYPE : Swift.Int {
+  case RESUME
+  case START
+  case SHOW_RESULT
+  case SHOW_ERROR
+  case SHOW_PROGRESS
+  case RELEASE_IMMEDIATE
+  case RELEASE
+  case RELEASE_AND_STOP_ALL_ACTION
+  case STOP_ACTION
+  case STOP_ACTION_BY_ID
+  case STOP_ACTION_BY_TYPE
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+open class Node<T> : Base_swift.PEqual {
+  public var realData: T
+  public init(data: T)
+  public func equal(to other: Any) -> Swift.Bool
+  public func addChild(child: Base_swift.Node<T>)
+  public func removeChild(child: Base_swift.Node<T>)
+  public func getChildren() -> Base_swift.ConcurrentList<Base_swift.Node<T>>
+  public func getRoot() -> Base_swift.Node<T>
+  public func getPathToRoot(spec: Base_swift.Specification<Base_swift.Node<T>>) -> [Base_swift.Node<T>]
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class TableViewDelegateProxy : ObjectiveC.NSObject, UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, heightForFooterInSection section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, viewForFooterInSection section: Swift.Int) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) @objc open func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @_Concurrency.MainActor(unsafe) open func addDelegate(_ delegate: Base_swift.TableViewDelegate)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class TableViewDelegate : ObjectiveC.NSObject, UIKit.UITableViewDelegate {
+  public enum TYPE {
+    case FOOTER
+    case DID_SCROLL
+    public static func == (a: Base_swift.TableViewDelegate.TYPE, b: Base_swift.TableViewDelegate.TYPE) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class TableViewFooterDelegate : Base_swift.TableViewDelegate {
+  @_Concurrency.MainActor(unsafe) open func getType() -> Base_swift.TableViewDelegate.TYPE?
+  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, heightForFooterInSection section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, viewForFooterInSection section: Swift.Int) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class TableViewDidScroll : Base_swift.TableViewDelegate {
+  @_Concurrency.MainActor(unsafe) open func getType() -> Base_swift.TableViewDelegate.TYPE?
+  @_Concurrency.MainActor(unsafe) @objc open func scrollViewDidScroll(_ scrollView: UIKit.UIScrollView)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class Iterator<T> {
+  public func hasNext() -> Swift.Bool
+  public func next() -> T?
+  public func remove()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseXibCustomView : UIKit.UIView {
+  @objc @IBOutlet @_Concurrency.MainActor(unsafe) public var contentView: UIKit.UIView!
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var paddingLeft: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var paddingTop: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var paddingRight: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var paddingBottom: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func commonInit()
+  @_Concurrency.MainActor(unsafe) public func findViewByTag(tag: Swift.Int) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) public func extraView(view: UIKit.UIView) -> Base_swift.ExtraViewParamsBuilder
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ExtraViewParamsBuilder {
+  public func toRightOf(tagView: Swift.Int, margin: CoreFoundation.CGFloat) -> Base_swift.ExtraViewParamsBuilder
+  public func centerY(tagView: Swift.Int) -> Base_swift.ExtraViewParamsBuilder
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ActionMonitor {
+  public func findRunningAction(actionID: Swift.String) -> Base_swift.ActionQueueInfo?
+  public func findRegisteredCallback(manager: any Base_swift.PActionManager, actionID: Swift.String) -> Base_swift.List<Base_swift.ActionCallbackInfo>?
+  public func addActionQueue(queue: Base_swift.ActionQueue)
+  public func dispatch(queue: Base_swift.ActionQueue)
+  public func notifyStartAction(action: Base_swift.BaseAction)
+  public func notifySuccessAction(action: Base_swift.BaseAction)
+  public func notifyErrorAction(action: Base_swift.BaseAction)
+  public func notifyProgress(action: Base_swift.BaseAction)
+  public func resume(manager: any Base_swift.PActionManager)
+  public func removeAllRegisteredCallbacksFromActionManager(manager: any Base_swift.PActionManager)
+  public func removeCallbackFromActionManager(manager: any Base_swift.PActionManager)
+  public func releaseAllActionFromActionManager(manager: any Base_swift.PActionManager)
+  public func releaseAndStopAllAction(manager: any Base_swift.PActionManager)
+  public func release(for manager: any Base_swift.PActionManager)
+  public func findActionEnqueueByAction(action: Base_swift.BaseAction) -> Base_swift.ActionQueue?
+  public func removeActionEnqueueFromCached(queue: Base_swift.ActionQueue)
+  public func getActionEnqueueCached() -> Base_swift.List<Base_swift.ActionQueue>
+  public func stopAction(action: Base_swift.BaseAction)
+  public func stopAction(actionID: Swift.String)
+  public func stopAction<T>(actionType: T.Type) where T : Base_swift.BaseAction
+  public func addActionCallbackInfo(manager: any Base_swift.PActionManager, actionID: Swift.String, info: Base_swift.ActionCallbackInfo)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class SharedDataFactory : Base_swift.PSharedDataFactory {
+  public func typeOf<T>(type: T.Type) -> T where T : Base_swift.SharedData
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class RuntimeError : Base_swift.BaseError {
+  override public init()
+  override public init(code: Swift.String?)
+  override public init(message: Swift.String?)
+  override public init(code: Swift.String?, message: Swift.String?)
+  @objc deinit
+}
+@objc open class InternalEvent : Base_swift.NotificationEvent {
+  public var rootEvent: Base_swift.NotificationEvent!
+  public var postDirect: Swift.Bool
+  public init(root: Base_swift.NotificationEvent, direct: Swift.Bool)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class JetUIPageViewController<V> : Base_swift.MVPPageViewController<V>, Base_swift.PJetContext where V : Base_swift.MVPUIPageView {
+  @_Concurrency.MainActor(unsafe) public func getController() -> Base_swift.BaseViewController
+  @_Concurrency.MainActor(unsafe) public func getScreenName() -> Swift.String
+  @_Concurrency.MainActor(unsafe) public func showLoading()
+  @_Concurrency.MainActor(unsafe) public func hideLoading()
+  @_Concurrency.MainActor(unsafe) public func showAlert(msg: Swift.String, type: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class MVPHelper {
+  public func getChildrenPresenter() -> Base_swift.List<any Base_swift.PChildPresenter>
+  public func addChildPresenter(child: any Base_swift.PChildPresenter, tag: Swift.String?)
+  public func removeChild(child: any Base_swift.PChildPresenter)
+  public func removeChild(tag: Swift.String)
+  public func readyChild(tag: Swift.String)
+  public func findPresenterByTag(tag: Swift.String) -> (any Base_swift.PChildPresenter)?
+  public func dispatchToChildren(command: any Base_swift.PCommand, tags: [Swift.String])
+  public func release()
+  public func onInterceptDispatchToChildren(command: any Base_swift.PCommand) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ActionQueueInfo : Base_swift.PEqual {
+  @objc deinit
+  public func equal(to other: Any) -> Swift.Bool
+  public func isSameAction(other: Base_swift.BaseAction) -> Swift.Bool
+  public func isSameAction(actionID: Swift.String) -> Swift.Bool
+  public func removeCallback(manager: any Base_swift.PActionManager)
+  public func hasCallbackRelatedToActionManager(manager: any Base_swift.PActionManager) -> Swift.Bool
+  public func isOwner(manager: any Base_swift.PActionManager) -> Swift.Bool
+}
+public protocol PActionEnqueueExecutor {
+  func enqueueExecute(queue: Base_swift.ActionQueue)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class ActionHandler : Base_swift.BaseDispatcher<Base_swift.ActionHandlerMessage> {
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class MVPPageChildController<V> : Base_swift.MVPViewController<V>, Base_swift.PStatePageDataSource where V : Base_swift.MVPUIView {
+  @_Concurrency.MainActor(unsafe) public func getIndex() -> Swift.Int
+  @_Concurrency.MainActor(unsafe) public func setIndex(index: Swift.Int)
+  @_Concurrency.MainActor(unsafe) public func saveState() -> [Swift.String : Any]?
+  @_Concurrency.MainActor(unsafe) public func restoreState(savedStates: [Swift.String : Any])
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class AndSpecification<E> : Base_swift.Specification<E> {
+  public init(spec1: Base_swift.Specification<E>, spec2: Base_swift.Specification<E>)
+  override public func valid(_ t: E) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ConcurrentCache<K, V> : Base_swift.PCache where K : Swift.Hashable {
+  public func getValue(key: Any) throws -> Any?
+  public func put(key: Any, value: Any)
+  public func has(key: Any) -> Swift.Bool
+  public func remove(key: Any) -> Any?
+  public func removeAll()
+  @objc deinit
+}
+public protocol PListViewCell : AnyObject {
+  var position: Swift.Int { get set }
+  var currentData: Any? { get set }
+  func initCell()
+  func bind(data: Any?)
+}
+open class CellData {
+  public enum CellState {
+    case normal
+    case selected
+    case pressed
+    case focus
+    public static func == (a: Base_swift.CellData.CellState, b: Base_swift.CellData.CellState) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  open var realData: Any?
+  open var state: Base_swift.CellData.CellState
+  public init(data: Any?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class OnCellData<T> : Base_swift.CellData {
+  open func getRealData() -> T?
+  override public init(data: Any?)
+  @objc deinit
+}
+public protocol PCommandExecutor {
+  func executeCommand(command: any Base_swift.PCommand)
+}
+@_hasMissingDesignatedInitializers open class NotSpecification<E> : Base_swift.Specification<E> {
+  override public func valid(_ t: E) -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ConcurrentMap<K, V> : Base_swift.PMap where K : Swift.Hashable {
+  public typealias KEY = K
+  public typealias VAL = V
+  public func size() -> Swift.Int
+  public func get(key: K) -> V?
+  public func put(key: K, value: V?)
+  public func valueSet() -> Base_swift.List<V>
+  public func remove(key: K) -> V?
+  public func removeAll()
+  @objc deinit
+}
+open class ActionCallbackInfo {
+  public var actionManager: (any Base_swift.PActionManager)?
+  public var callback: Base_swift.ActionCallback?
+  public var managerOwnAction: Swift.Bool
+  @objc deinit
+  public init(manager: any Base_swift.PActionManager, callback: Base_swift.ActionCallback)
+  public func isSameActionManager(manager: any Base_swift.PActionManager) -> Swift.Bool
+  public func release()
+}
+@_hasMissingDesignatedInitializers open class Lock : Base_swift.PLock {
+  public func lock()
+  public func unlock()
+  @objc deinit
+}
+open class GroupData {
+  open var originalIndex: Swift.Int
+  open var activeIndex: Swift.Int
+  open var startPosition: Swift.Int
+  weak open var groupDataSource: Base_swift.GroupDataSource?
+  open var data: [Any?]?
+  public init()
+  public init(data: [Any?]?)
+  open func initCell(cell: any Base_swift.PListViewCell)
+  open func updateCell(cell: any Base_swift.PListViewCell)
+  open func getCount() -> Swift.Int
+  open func getRegisteredCellTypes() -> [Swift.AnyClass]
+  open func getCellType(positionInGroup position: Swift.Int) -> Swift.AnyClass
+  open func getDataForRow(positionInGroup: Swift.Int) -> Any?
+  open func isAttached() -> Swift.Bool
+  open func detach()
+  open func reset(data: [Any?]?)
+  open func show()
+  open func hide()
+  open func gone()
+  open func addElement(_ elements: [Any?])
+  open func getIndexPath(positionInGroup: Swift.Int) -> Foundation.IndexPath?
+  open func notifyChanged()
+  open func notifySelfChanged(animation: UIKit.UITableView.RowAnimation = .none)
+  @objc deinit
+}
+public protocol PView : AnyObject, Base_swift.PCommandExecutor {
+  func setStatus(status: Base_swift.PVIEW_STATUS)
+  func getStatus() -> Base_swift.PVIEW_STATUS
+  func attachPresenter(presenter: any Base_swift.PPresenter)
+  func hasMVPChildren() -> Swift.Bool
+  func onInitView()
+  func setMVPViewParent(parent: (any Base_swift.PView)?)
+  func onPortrait()
+  func onLandscape()
+  func isPortrait() -> Swift.Bool
+}
+public enum PVIEW_STATUS {
+  case VIEW_CREATE
+  case VIEW_INITITNG
+  case VIEW_INITED
+  case VIEW_READY
+  case VIEW_DESTROY
+  public static func == (a: Base_swift.PVIEW_STATUS, b: Base_swift.PVIEW_STATUS) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers open class ShadowLayer : QuartzCore.CAShapeLayer {
+  @objc override dynamic open var frame: CoreFoundation.CGRect {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc override dynamic public init(layer: Any)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class CompoundCallback {
+  public func onStart(index: Swift.Int, action: Base_swift.BaseAction)
+  public func onCompletedAll()
+  public func onError()
+  public func onInterrupt(interruptedActions: Base_swift.List<Base_swift.BaseAction>)
+  public func setActionManager(manager: any Base_swift.PActionManager)
+  public func setActionQueueInfo(actionInfoList: Base_swift.List<Base_swift.ActionQueueInfo>)
+  public func getActionManager() -> (any Base_swift.PActionManager)?
+  public func removeCallback(manager: any Base_swift.PActionManager)
+  public func getResultCount() -> Swift.Int
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class Navigation : Base_swift.PEqual {
+  public func equal(to other: Any) -> Swift.Bool
+  public func destroy()
+  public func navi(to vc: UIKit.UIViewController) -> Base_swift.Navigation
+  public func with(callback: @escaping ([Swift.String : Any?]?) -> Swift.Void)
+  public func push(key: Swift.String, data: Any?) -> Base_swift.Navigation
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseViewController : UIKit.UIViewController, Base_swift.PLifeCycleOwner {
+  public enum VISIBLE_STATUS {
+    case FIRST_SHOW
+    case SHOW_AGAIN
+    case FIRST_HIDE
+    case HIDE_AGAIN
+    public static func == (a: Base_swift.BaseViewController.VISIBLE_STATUS, b: Base_swift.BaseViewController.VISIBLE_STATUS) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidAppear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewWillDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func viewDidDisappear(_ animated: Swift.Bool)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func dismiss(animated flag: Swift.Bool, completion: (() -> Swift.Void)? = nil)
+  @_Concurrency.MainActor(unsafe) public func addLifeCycle(lc: any Base_swift.PLifeCycle)
+  @_Concurrency.MainActor(unsafe) public func removeLifeCycle(lc: any Base_swift.PLifeCycle)
+  @_Concurrency.MainActor(unsafe) public func getAllLifeCycle() -> Base_swift.List<any Base_swift.PLifeCycle>
+  @_Concurrency.MainActor(unsafe) public func destroy()
+  @_Concurrency.MainActor(unsafe) public func replace(to vc: UIKit.UIViewController)
+  @_Concurrency.MainActor(unsafe) public func finish(animated: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public func finishToRoot(animated: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public func finishTo(_ viewController: UIKit.UIViewController, animated: Swift.Bool = true)
+  @_Concurrency.MainActor(unsafe) public func markToFinish()
+  @_Concurrency.MainActor(unsafe) public func returnData(key: Swift.String, data: Any?) -> Base_swift.Navigation?
+  @discardableResult
+  @_Concurrency.MainActor(unsafe) public func navi(to vc: UIKit.UIViewController) -> Base_swift.Navigation
+  @_Concurrency.MainActor(unsafe) public func returnData<O>(data: O) -> Base_swift.Navigation?
+  @_Concurrency.MainActor(unsafe) public func getReturnData<O>(dataDic: [Swift.String : Any?]) -> O
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseGroupTableCell : Base_swift.BaseTableCell, Base_swift.PGroupCell {
+  @_Concurrency.MainActor(unsafe) open var positionInGroup: Swift.Int
+  @_Concurrency.MainActor(unsafe) open var currentGroup: Base_swift.GroupData!
+  @_Concurrency.MainActor(unsafe) open var groupIndex: Swift.Int
+  @available(iOS 3.0, *)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class GroupTableCell<T> : Base_swift.BaseGroupTableCell {
+  @_Concurrency.MainActor(unsafe) override open func bind(data: Any?)
+  @_Concurrency.MainActor(unsafe) open func onBind(data: T?)
+  @available(iOS 3.0, *)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class OrSpecification<E> : Base_swift.Specification<E> {
+  public init(spec1: Base_swift.Specification<E>, spec2: Base_swift.Specification<E>)
+  override public func valid(_ t: E) -> Swift.Bool
+  @objc deinit
+}
+public protocol PActionScheduler {
+  func execute(action: Base_swift.BaseAction)
+  func stop(action: Base_swift.BaseAction)
+}
+@_hasMissingDesignatedInitializers open class LCController {
+  public func getAllLifeCycle<T>(owner: T) -> Base_swift.List<any Base_swift.PLifeCycle> where T : Swift.Hashable
+  public func addComponent<T>(owner: T, lifeCycle: any Base_swift.PLifeCycle) where T : Swift.Hashable
+  public func removeAll<T>(owner: T) where T : Swift.Hashable
+  public func removeComponent<T>(owner: T, lifeCycle: any Base_swift.PLifeCycle) where T : Swift.Hashable
+  public func invoke<T>(owner: T, clazz: Swift.String, params: Any?...) -> Swift.Bool where T : Swift.Hashable
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) open class ItemSpacing : Base_swift.CollectionViewSpaceItemDelegate {
+  @_Concurrency.MainActor(unsafe) public init(spacing: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) override open func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, minimumLineSpacingForSectionAt section: Swift.Int) -> CoreFoundation.CGFloat
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseGroupCollectionCell : Base_swift.BaseCollectionCell, Base_swift.PGroupCell {
+  @_Concurrency.MainActor(unsafe) open var positionInGroup: Swift.Int
+  @_Concurrency.MainActor(unsafe) open var currentGroup: Base_swift.GroupData!
+  @_Concurrency.MainActor(unsafe) open var groupIndex: Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class GroupCollectionCell<T> : Base_swift.BaseGroupCollectionCell {
+  @_Concurrency.MainActor(unsafe) override open func bind(data: Any?)
+  @_Concurrency.MainActor(unsafe) open func onBind(data: T?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol PCache {
+  func getValue(key: Any) throws -> Any?
+  func put(key: Any, value: Any)
+  func has(key: Any) -> Swift.Bool
+  func remove(key: Any) -> Any?
+  func removeAll()
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseCollectionCell : UIKit.UICollectionViewCell, Base_swift.PListViewCell {
+  @_Concurrency.MainActor(unsafe) open var position: Swift.Int
+  @_Concurrency.MainActor(unsafe) open var currentData: Any?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) open func isCreatedFromNib() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) open func initCell()
+  @_Concurrency.MainActor(unsafe) open func bind(data: Any?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CollectionCell<T> : Base_swift.BaseCollectionCell {
+  @_Concurrency.MainActor(unsafe) override open func bind(data: Any?)
+  @_Concurrency.MainActor(unsafe) open func onBind(data: T?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class Specification<E> : Base_swift.PValidation {
+  public typealias T = E
+  public func valid(_ t: E) -> Swift.Bool
+  public func and(spec: Base_swift.Specification<E>) -> Base_swift.Specification<E>
+  public func or(spec: Base_swift.Specification<E>) -> Base_swift.Specification<E>
+  public func not(spec: Base_swift.Specification<E>) -> Base_swift.Specification<E>
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class OnSpecification<E> : Base_swift.Specification<E> {
+  public init(spec: @escaping (E) -> Swift.Bool)
+  override public func valid(_ t: E) -> Swift.Bool
+  @objc deinit
+}
+public struct WeakStruct<Object> where Object : AnyObject {
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class JetUIViewController<V> : Base_swift.MVPViewController<V>, Base_swift.PJetContext where V : Base_swift.PView {
+  @_Concurrency.MainActor(unsafe) public func getController() -> Base_swift.BaseViewController
+  @_Concurrency.MainActor(unsafe) public func getScreenName() -> Swift.String
+  @_Concurrency.MainActor(unsafe) public func showLoading()
+  @_Concurrency.MainActor(unsafe) public func hideLoading()
+  @_Concurrency.MainActor(unsafe) public func showAlert(msg: Swift.String, type: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class UILoadingView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func willMove(toSuperview newSuperview: UIKit.UIView?)
+  @_Concurrency.MainActor(unsafe) public func start()
+  @_Concurrency.MainActor(unsafe) public func stop()
+  @objc deinit
+}
+public protocol PStatePageDataSource {
+  func getIndex() -> Swift.Int
+  func setIndex(index: Swift.Int)
+  func saveState() -> [Swift.String : Any]?
+  func restoreState(savedStates: [Swift.String : Any])
+}
+@_hasMissingDesignatedInitializers open class GroupListView {
+  open func reloadData()
+  open func reloadSection(indexSet: Foundation.IndexSet, animation: UIKit.UITableView.RowAnimation)
+  open func insertSections(indexSet: Foundation.IndexSet)
+  open func deleteSection(indexSet: Foundation.IndexSet, animation: UIKit.UITableView.RowAnimation)
+  open func register(_ nib: UIKit.UINib, forCellReuseIdentifier name: Swift.String)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class GroupTableView : Base_swift.GroupListView {
+  public init(view: UIKit.UITableView)
+  override open func reloadData()
+  override open func reloadSection(indexSet: Foundation.IndexSet, animation: UIKit.UITableView.RowAnimation = .none)
+  override open func insertSections(indexSet: Foundation.IndexSet)
+  override open func deleteSection(indexSet: Foundation.IndexSet, animation: UIKit.UITableView.RowAnimation)
+  override open func register(_ nib: UIKit.UINib, forCellReuseIdentifier name: Swift.String)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class GroupCollectionView : Base_swift.GroupListView {
+  public init(view: UIKit.UICollectionView)
+  override open func reloadData()
+  override open func reloadSection(indexSet: Foundation.IndexSet, animation: UIKit.UITableView.RowAnimation)
+  override open func insertSections(indexSet: Foundation.IndexSet)
+  override open func deleteSection(indexSet: Foundation.IndexSet, animation: UIKit.UITableView.RowAnimation)
+  override open func register(_ nib: UIKit.UINib, forCellReuseIdentifier name: Swift.String)
+  @objc deinit
+}
+public protocol PEventHandler : Base_swift.PEqual {
+  func receive(event: Base_swift.NotificationEvent)
+}
+extension Base_swift.PEventHandler {
+  public func equal(to other: Any) -> Swift.Bool
+}
+@objc @_inheritsConvenienceInitializers open class ListViewDataSource : ObjectiveC.NSObject {
+  open var data: [Any?]?
+  open func getCount() -> Swift.Int
+  open func getRegisteredCellTypes() -> [Swift.AnyClass]
+  open func getCellType(at position: Swift.Int) -> Swift.AnyClass?
+  open func getDataForRow(position: Swift.Int) -> Any?
+  open func reset(data: [Any?]?)
+  open func add(data: [Any?]?)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class GroupTableViewDataSource : Base_swift.GroupDataSource, UIKit.UITableViewDataSource {
+  @_Concurrency.MainActor(unsafe) @objc open func numberOfSections(in tableView: UIKit.UITableView) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc open func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) open func initCell(cell: Base_swift.BaseGroupTableCell, indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) open func registerDataSource(tableView: UIKit.UITableView)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) open class TableViewSectionSpace : Base_swift.TableViewFooterDelegate {
+  @_Concurrency.MainActor(unsafe) public var allGroups: Base_swift.List<Base_swift.GroupData>?
+  @_Concurrency.MainActor(unsafe) public var ignoreGroups: Base_swift.List<Base_swift.GroupData>?
+  @_Concurrency.MainActor(unsafe) public init(size: CoreFoundation.CGFloat, color: UIKit.UIColor = .clear)
+  @_Concurrency.MainActor(unsafe) @objc override open func tableView(_ tableView: UIKit.UITableView, heightForFooterInSection section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override open func tableView(_ tableView: UIKit.UITableView, viewForFooterInSection section: Swift.Int) -> UIKit.UIView?
+  @objc deinit
+}
+open class WeakValueDictionary<K, Value> where K : Swift.Hashable, Value : AnyObject {
+  public init()
+  public init(dic: [K : Value])
+  public func remove(key: K)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class BaseChildPresenter : Base_swift.BasePresenter, Base_swift.PChildPresenter {
+  override public func presenterReady()
+  override public func presenterRelease()
+  public func getParentPresenter() -> (any Base_swift.PParentPresenter)?
+  public func setParentPresenter(parent: any Base_swift.PParentPresenter)
+  public func dispatchToParent(command: any Base_swift.PParentCommand)
+  public func getTag() -> Swift.String?
+  public func setTag(tag: Swift.String?)
+  public func hasReady() -> Swift.Bool
+  public func onPresenterReady()
+  public func onPresenterRelease()
+  @objc deinit
+}
+open class Reference<Value> {
+  public var value: Value?
+  public init()
+  public init(value: Value?)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class MutableReference<Value> : Base_swift.Reference<Value> {
+  public func update(new value: Value)
+  override public init()
+  override public init(value: Value?)
+  @objc deinit
+}
+open class WeakReference<Value> where Value : AnyObject {
+  public init()
+  public init(value: Value?)
+  @objc deinit
+}
+public protocol PLifeCycleOwner {
+  func addLifeCycle(lc: any Base_swift.PLifeCycle)
+  func removeLifeCycle(lc: any Base_swift.PLifeCycle)
+  func getAllLifeCycle() -> Base_swift.List<any Base_swift.PLifeCycle>
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseCollectionDataSource : Base_swift.ListViewDataSource, UIKit.UICollectionViewDataSource {
+  @objc override dynamic public init()
+  @_Concurrency.MainActor(unsafe) public init(data: [Any?]?)
+  @_Concurrency.MainActor(unsafe) @objc open func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc open func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+  override open func getCellType(at position: Swift.Int) -> Swift.AnyClass
+  @_Concurrency.MainActor(unsafe) open func initCell(cell: Base_swift.BaseCollectionCell, indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) open func updateCell(cell: Base_swift.BaseCollectionCell, indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) open func registerDataSource(collectionView: UIKit.UICollectionView)
+  @_Concurrency.MainActor(unsafe) open func register(collectionView: UIKit.UICollectionView, cellType: Swift.AnyClass)
+  @objc deinit
+}
+public protocol PSharedDataFactory {
+  func typeOf<T>(type: T.Type) -> T where T : Base_swift.SharedData
+}
+public protocol PCollection {
+  associatedtype T
+  func size() -> Swift.Int
+  func element(at index: Swift.Int) -> Self.T
+  func add(element: Self.T)
+  func add(index: Swift.Int, element: Self.T)
+  func addAll(array: [Self.T])
+  func remove(index: Swift.Int) -> Self.T
+  func remove(element: Self.T) -> Swift.Int
+  func removeAll()
+  func contain(element: Self.T) -> Swift.Bool
+  func find(filter: (Self.T) -> Swift.Bool) -> (index: Swift.Int, element: Self.T)?
+  func findAll(filter: (Self.T) -> Swift.Bool) -> [(index: Swift.Int, element: Self.T)]
+  func findValues(filter: (Self.T) -> Swift.Bool) -> [Self.T]
+  func enumerated() -> Swift.EnumeratedSequence<Swift.Array<Self.T>>
+  func iterator(handler: (Base_swift.Iterator<Self.T>) -> Swift.Void)
+  func isEmpty() -> Swift.Bool
+  func toArray() -> [Self.T]
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class MVPViewController<V> : Base_swift.BaseViewController, Base_swift.PParentPresenter, Base_swift.PChildPresenter where V : Base_swift.PView {
+  @_Concurrency.MainActor(unsafe) public var mvpView: V!
+  @_Concurrency.MainActor(unsafe) public var actionManager: (any Base_swift.PActionManager)!
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func loadView()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) open func onViewWillAppear(status: Base_swift.BaseViewController.VISIBLE_STATUS)
+  @_Concurrency.MainActor(unsafe) open func onViewWillDisappear(status: Base_swift.BaseViewController.VISIBLE_STATUS)
+  @_Concurrency.MainActor(unsafe) override open func destroy()
+  @_Concurrency.MainActor(unsafe) open func presenterReady()
+  @_Concurrency.MainActor(unsafe) open func presenterRelease()
+  @_Concurrency.MainActor(unsafe) open func setMVPView(view: any Base_swift.PView)
+  @_Concurrency.MainActor(unsafe) open func getTag() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) open func setTag(tag: Swift.String?)
+  @_Concurrency.MainActor(unsafe) open func hasReady() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) open func getChildrenPresenter() -> Base_swift.List<any Base_swift.PChildPresenter>
+  @_Concurrency.MainActor(unsafe) open func addChildPresenter(child: any Base_swift.PChildPresenter, tag: Swift.String?)
+  @_Concurrency.MainActor(unsafe) open func addChildPresenter(child: any Base_swift.PChildPresenter, view: any Base_swift.PView, tag: Swift.String?)
+  @_Concurrency.MainActor(unsafe) open func removeChildPresenter(child: any Base_swift.PChildPresenter)
+  @_Concurrency.MainActor(unsafe) open func removeChildPresenter(tag: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func readyChild(childTag: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func findPresenterByTag(tag: Swift.String) -> (any Base_swift.PChildPresenter)?
+  @_Concurrency.MainActor(unsafe) open func getParentPresenter() -> (any Base_swift.PParentPresenter)?
+  @_Concurrency.MainActor(unsafe) open func setParentPresenter(parent: any Base_swift.PParentPresenter)
+  @_Concurrency.MainActor(unsafe) open func onInterceptCommand(command: any Base_swift.PCommand) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) open func onInterceptDispatchToChildren(command: any Base_swift.PCommand) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) open func executeCommand(command: any Base_swift.PCommand)
+  @_Concurrency.MainActor(unsafe) open func dispatchToChildrent(command: any Base_swift.PCommand, tags: Swift.String...)
+  @_Concurrency.MainActor(unsafe) open func dispatchToParent(command: any Base_swift.PParentCommand)
+  @_Concurrency.MainActor(unsafe) open func mvpComponentWillLoad()
+  @_Concurrency.MainActor(unsafe) open func onPresenterReady()
+  @_Concurrency.MainActor(unsafe) open func onPresenterRelease()
+  @_Concurrency.MainActor(unsafe) open func onExecuteCommand(command: any Base_swift.PCommand) throws
+  @_Concurrency.MainActor(unsafe) open func createActionManager() -> any Base_swift.PActionManager
+  @_Concurrency.MainActor(unsafe) open func releaseActionManager()
+  @_Concurrency.MainActor(unsafe) open func addState<P, V>(name: Swift.String, state: Base_swift.MVPState<P, V>, parentName: Swift.String? = nil) where P : Base_swift.PPresenter, V : Base_swift.PView
+  @_Concurrency.MainActor(unsafe) open func initState(name: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func removeState(name: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func transitTo(name: Swift.String)
+  @_Concurrency.MainActor(unsafe) open func getCurrentState() -> Swift.String?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class SubscriberProxy : Base_swift.PEventHandler {
+  public func receive(event: Base_swift.NotificationEvent)
+  public func addEventInfo(eventInfo: Base_swift.EventInfo)
+  public func release()
+  public func addPendingEvent(event: Base_swift.NotificationEvent)
+  public func isWrapOf(handler: any Base_swift.PEventHandler) -> Swift.Bool
+  public func removeAllPendingEvent()
+  public func removeEvent(event: Base_swift.NotificationEvent)
+  public func firePendingEvent()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class PendingEventInfo {
+  public var event: Base_swift.NotificationEvent!
+  public var priority: Swift.Int
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class UIInsetTextField : UIKit.UITextField {
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var textInsetLeft: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var textInsetRight: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var textInsetTop: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @objc @IBInspectable @_Concurrency.MainActor(unsafe) public var textInsetBottom: CoreFoundation.CGFloat {
+    @objc get
+    @objc set
+  }
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func textRect(forBounds bounds: CoreFoundation.CGRect) -> CoreFoundation.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func placeholderRect(forBounds bounds: CoreFoundation.CGRect) -> CoreFoundation.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func editingRect(forBounds bounds: CoreFoundation.CGRect) -> CoreFoundation.CGRect
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class UserDataCache<T> : Base_swift.PCache where T : Swift.Decodable, T : Swift.Encodable {
+  public func getValue(key: Any) throws -> Any?
+  public func put(key: Any, value: Any)
+  public func has(key: Any) -> Swift.Bool
+  public func remove(key: Any) -> Any?
+  public func removeAll()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class ArrayQueue<T> : Base_swift.Queue<T> {
+  override public func offer(element: T)
+  override public func offerFirst(element: T)
+  override public func offerAt(index: Swift.Int, element: T)
+  override public func poll() -> T?
+  override public func size() -> Swift.Int
+  override public func elementAt(index: Swift.Int) -> T?
+  override public func head() -> T?
+  override public func tail() -> T?
+  override public func isEmpty() -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class SimplePresenter<V> : ObjectiveC.NSObject, Base_swift.PParentPresenter, Base_swift.PChildPresenter where V : Base_swift.PView {
+  public func setMVPView(view: any Base_swift.PView)
+  public func presenterReady()
+  public func presenterRelease()
+  public func getParentPresenter() -> (any Base_swift.PParentPresenter)?
+  public func setParentPresenter(parent: any Base_swift.PParentPresenter)
+  public func getTag() -> Swift.String?
+  public func setTag(tag: Swift.String?)
+  public func hasReady() -> Swift.Bool
+  public func dispatchToParent(command: any Base_swift.PParentCommand)
+  public func onInterceptCommand(command: any Base_swift.PCommand) -> Swift.Bool
+  public func executeCommand(command: any Base_swift.PCommand)
+  public func getChildrenPresenter() -> Base_swift.List<any Base_swift.PChildPresenter>
+  public func addChildPresenter(child: any Base_swift.PChildPresenter, tag: Swift.String?)
+  public func removeChildPresenter(child: any Base_swift.PChildPresenter)
+  public func removeChildPresenter(tag: Swift.String)
+  public func dispatchToChildrent(command: any Base_swift.PCommand, tags: Swift.String...)
+  public func onInterceptDispatchToChildren(command: any Base_swift.PCommand) -> Swift.Bool
+  public func findPresenterByTag(tag: Swift.String) -> (any Base_swift.PChildPresenter)?
+  public func readyChild(childTag: Swift.String)
+  public func onPresenterReady()
+  public func onPresenterRelease()
+  public func onExecuteCommand(command: any Base_swift.PCommand) throws
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol PValidation {
+  associatedtype T
+  func valid(_ t: Self.T) -> Swift.Bool
+}
+public protocol Highlightable {
+  func show(highlight: Swift.Bool)
+}
+@_hasMissingDesignatedInitializers open class OpacityHighlight : Base_swift.Highlightable {
+  public func show(highlight: Swift.Bool)
+  @objc deinit
+}
+@objc @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) open class OnClickListener : UIKit.UITapGestureRecognizer, UIKit.UIGestureRecognizerDelegate {
+  @objc deinit
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc public func gestureRecognizer(_ gestureRecognizer: UIKit.UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func addHighlightable(highlight: any Base_swift.Highlightable)
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func fill(parent view: UIKit.UIView, constant: UIKit.UIEdgeInsets = .zero)
+}
+@_hasMissingDesignatedInitializers open class MessageHandler : Base_swift.MessageDispatcher {
+  public init(looper: Base_swift.Looper)
+  public func dispatch(event: Base_swift.Message2)
+  public func dispatchAtFront(event: Base_swift.Message2)
+  @objc deinit
+}
+public protocol PLock {
+  func lock()
+  func unlock()
+}
+@_hasMissingDesignatedInitializers open class SimpleCallback<O> : Base_swift.OnActionCallback<O> {
+  override public func onStart()
+  override public func onStartError()
+  override public func onPublishProgress(event: Any)
+  override public func onInterrupt()
+  override public func onSuccess(result: O?)
+  override public func onError(e: Base_swift.ActionError)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class MVPUIPageView : Base_swift.MVPUIView {
+  @_Concurrency.MainActor(unsafe) open func addPageView(pageView: UIKit.UIView)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class MVPState<P, V> : Base_swift.State where P : Base_swift.PPresenter, V : Base_swift.PView {
+  open var stateContext: P!
+  open var mvpView: V!
+  public init(stateContext: P, view: V)
+  override open func handle(params: [Any?]) -> Swift.Bool
+  open func interceptCommand(command: any Base_swift.PCommand) -> Swift.Bool
+  open func executeCommand(command: any Base_swift.PCommand) -> Swift.Bool
+  open func onExecuteCommand(command: any Base_swift.PCommand) throws -> Swift.Bool
+  open func switchTo(name: Swift.String)
+  open func readyChild(tag: Swift.String)
+  open func addChildPresenter(child: any Base_swift.PChildPresenter, tag: Swift.String)
+  open func addChildPresenter(child: any Base_swift.PChildPresenter, view: any Base_swift.PView, tag: Swift.String)
+  open func findPresenterByTag(tag: Swift.String) -> (any Base_swift.PChildPresenter)?
+  @objc deinit
+}
+public protocol PChildPresenter : Base_swift.PPresenter {
+  func getParentPresenter() -> (any Base_swift.PParentPresenter)?
+  func setParentPresenter(parent: any Base_swift.PParentPresenter)
+  func dispatchToParent(command: any Base_swift.PParentCommand)
+  func getTag() -> Swift.String?
+  func setTag(tag: Swift.String?)
+  func hasReady() -> Swift.Bool
+}
+@_inheritsConvenienceInitializers open class ActionStartError : Base_swift.ActionError {
+  override public init()
+  override public init(message: Swift.String)
+  override public init(e: any Swift.Error)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class BaseTableCell : UIKit.UITableViewCell, Base_swift.PListViewCell {
+  @_Concurrency.MainActor(unsafe) public var position: Swift.Int
+  @_Concurrency.MainActor(unsafe) public var countOfList: Swift.Int
+  @_Concurrency.MainActor(unsafe) public var currentData: Any?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func awakeFromNib()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func prepareForReuse()
+  @_Concurrency.MainActor(unsafe) open func isCreatedFromNib() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) open func initCell()
+  @_Concurrency.MainActor(unsafe) open func bind(data: Any?)
+  @available(iOS 3.0, *)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class TableCell<T> : Base_swift.BaseTableCell {
+  @_Concurrency.MainActor(unsafe) override open func bind(data: Any?)
+  @_Concurrency.MainActor(unsafe) open func onBind(data: T?)
+  @available(iOS 3.0, *)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(style: UIKit.UITableViewCell.CellStyle, reuseIdentifier: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+open class ActionError : Swift.Error {
+  public var message: Swift.String?
+  public var cause: (any Swift.Error)?
+  public init()
+  public init(message: Swift.String)
+  public init(e: any Swift.Error)
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) open class SectionSpace : Base_swift.CollectionViewInsetDelegate {
+  @_Concurrency.MainActor(unsafe) public init(left: CoreFoundation.CGFloat, top: CoreFoundation.CGFloat, right: CoreFoundation.CGFloat, bottom: CoreFoundation.CGFloat)
+  @_Concurrency.MainActor(unsafe) override open func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, insetForSectionAt section: Swift.Int) -> UIKit.UIEdgeInsets
+  @objc deinit
+}
+public protocol PActionBuilder {
+  func setRunMode(mode: Base_swift.RUN_MODE) -> any Base_swift.PActionBuilder
+  func add(action: Base_swift.BaseAction, input: Any, callback: Base_swift.ActionCallback?, scheduler: any Base_swift.PActionScheduler) -> any Base_swift.PActionBuilder
+  func onCompound(callback: Base_swift.CompoundCallback?) -> any Base_swift.PActionBuilder
+  func run()
+}
+public protocol POnEventPublisher {
+  func onPublishEvent(event: Any)
+}
+@_hasMissingDesignatedInitializers open class OnEventPublisher : Base_swift.POnEventPublisher {
+  public func onPublishEvent(event: Any)
+  @objc deinit
+}
+public struct Atomic<V> {
+}
+@_inheritsConvenienceInitializers open class List<E> : Base_swift.MutableReference<[E]>, Base_swift.PCollection {
+  public typealias T = E
+  override public init()
+  override public init(value: [E]!)
+  public func size() -> Swift.Int
+  public func element(at index: Swift.Int) -> E
+  public func add(element: E)
+  public func add(index: Swift.Int, element: E)
+  public func addAll(array: [E])
+  public func remove(index: Swift.Int) -> E
+  public func remove(element: E) -> Swift.Int
+  public func removeAll()
+  public func contain(element: E) -> Swift.Bool
+  public func find(filter: (E) -> Swift.Bool) -> (index: Swift.Int, element: E)?
+  public func findAll(filter: (E) -> Swift.Bool) -> [(index: Swift.Int, element: E)]
+  public func findValues(filter: (E) -> Swift.Bool) -> [E]
+  public func enumerated() -> Swift.EnumeratedSequence<Swift.Array<Base_swift.List<E>.T>>
+  public func iterator(handler: (Base_swift.Iterator<Base_swift.List<E>.T>) -> Swift.Void)
+  public func isEmpty() -> Swift.Bool
+  public func toArray() -> [E]
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) open class ItemSize : Base_swift.CollectionViewItemSizeDelegate {
+  @_Concurrency.MainActor(unsafe) public init(itemSize: CoreFoundation.CGSize)
+  @_Concurrency.MainActor(unsafe) override open func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
+  @objc deinit
+}
+open class SharedData {
+  required public init()
+  public func bind(owner: any Base_swift.PLifeCycleOwner) -> Base_swift.ObserverInfo
+  public func bind(ownerId: Swift.String, owner: any Base_swift.PLifeCycleOwner) -> Base_swift.ObserverInfo
+  public func unbind(owner: any Base_swift.PLifeCycleOwner)
+  public func unbind(ownerId: Swift.String)
+  public func notifyActive(owner: any Base_swift.PLifeCycleOwner, active: Swift.Bool)
+  public func notifyActive(ownerId: Swift.String, active: Swift.Bool)
+  public func isActive() -> Swift.Bool
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ObserverInfo {
+  public func register<T>(data: Base_swift.LiveData<T>, observer: any Base_swift.PObserver) -> Base_swift.ObserverInfo
+  public func notifyActive(isActive: Swift.Bool)
+  public func release()
+  @objc deinit
+}
+public protocol PDelayObserver : Base_swift.PObserver {
+  func setActive(active: Swift.Bool)
+  func hasConsumed() -> Swift.Bool
+  func onNotifyActive()
+}
+@_hasMissingDesignatedInitializers open class DelayObserver : Base_swift.PDelayObserver {
+  public func onChanged(data: Any?)
+  public func setActive(active: Swift.Bool)
+  public func hasConsumed() -> Swift.Bool
+  public func onNotifyActive()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class DelayObserverFactory {
+  public func create(observer: any Base_swift.PObserver, isActive: Swift.Bool) -> any Base_swift.PDelayObserver
+  @objc deinit
+}
+public protocol PMap {
+  associatedtype KEY : Swift.Hashable
+  associatedtype VAL
+  func size() -> Swift.Int
+  func get(key: Self.KEY) -> Self.VAL?
+  func put(key: Self.KEY, value: Self.VAL?)
+  func valueSet() -> Base_swift.List<Self.VAL>
+  func remove(key: Self.KEY) -> Self.VAL?
+  func removeAll()
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class Looper : Base_swift.BaseDispatcher<Base_swift.LooperInfo> {
+  public func handleEvent(event: Base_swift.LooperInfo) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class LooperInfo {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class BaseAction : Base_swift.PEqual {
+  public enum STATUS {
+    case SUSSESS
+    case ERROR
+    case RUNNING
+    case PENDING
+    case INTERRUPT
+    case START
+    public static func == (a: Base_swift.BaseAction.STATUS, b: Base_swift.BaseAction.STATUS) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public func equal(to other: Any) -> Swift.Bool
+  public func start() throws
+  public func stop() throws
+  public func execute() throws -> Any?
+  public func onStart() throws
+  public func onStop() throws
+  open func onExecuteAction(input: Any?) throws -> Any?
+  public func getID() -> Swift.String
+  public func createID() -> Swift.String
+  public func createIDGenerator() -> any Base_swift.PIDGenerator
+  public func setInput(input: Any)
+  public func getInput() -> Any?
+  public func getStatus() -> Base_swift.BaseAction.STATUS
+  public func setOuput(output: Any?)
+  public func getOuput() -> Any?
+  public func setError(error: Base_swift.ActionError)
+  public func getError() -> Base_swift.ActionError?
+  public func getCurrentEvent() -> Any?
+  public func publishEvent(event: Any)
+  public func isInterrpt() -> Swift.Bool
+  public func isSuccessful() -> Swift.Bool
+  public func isError() -> Swift.Bool
+  public func addJob(job: any Base_swift.ActionJob) -> Base_swift.ActionJobBuilder
+  public func addJob(job: @escaping () throws -> Swift.Void) -> Base_swift.ActionJobBuilder
+  public func buildJob() -> Base_swift.ActionJobBuilder
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class Action<I, O> : Base_swift.BaseAction {
+  public init()
+  override public func onExecuteAction(input: Any?) throws -> Any?
+  open func onExecute(input: I) throws -> O?
+  @objc deinit
+}
+public protocol ActionJob {
+  func submitJob() throws
+}
+open class OnActionJob : Base_swift.ActionJob {
+  public init(job: @escaping () throws -> Swift.Void)
+  public func submitJob() throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ActionJobBuilder {
+  public func addJob(job: any Base_swift.ActionJob) -> Base_swift.ActionJobBuilder
+  public func addJob(job: @escaping () throws -> Swift.Void) -> Base_swift.ActionJobBuilder
+  public func error(handler: @escaping (Base_swift.List<any Swift.Error>) throws -> Swift.Void) -> Base_swift.ActionJobBuilder
+  public func worker(_ worker: Base_swift.ActionWorker) -> Base_swift.ActionJobBuilder
+  public func execute(timeout inSecond: Swift.Double? = nil) throws
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ActionWorker {
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class RectangleStrockLayer : QuartzCore.CAShapeLayer {
+  @objc override dynamic open var frame: CoreFoundation.CGRect {
+    @objc get
+    @objc set
+  }
+  @objc override dynamic public init()
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc override dynamic public init(layer: Any)
+  public func makeChange()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class SharedDataProvider {
+  @objc deinit
+}
+@objc @_Concurrency.MainActor(unsafe) open class MVPUIView : UIKit.UIView, Base_swift.PView {
+  @_Concurrency.MainActor(unsafe) weak open var presenter: (any Base_swift.PPresenter)?
+  @_Concurrency.MainActor(unsafe) weak open var parentMVPView: (any Base_swift.PView)?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) public func setStatus(status: Base_swift.PVIEW_STATUS)
+  @_Concurrency.MainActor(unsafe) public func getStatus() -> Base_swift.PVIEW_STATUS
+  @_Concurrency.MainActor(unsafe) public func attachPresenter(presenter: any Base_swift.PPresenter)
+  @_Concurrency.MainActor(unsafe) public func hasMVPChildren() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) open func onInitView()
+  @_Concurrency.MainActor(unsafe) public func setMVPViewParent(parent: (any Base_swift.PView)?)
+  @_Concurrency.MainActor(unsafe) public func onPortrait()
+  @_Concurrency.MainActor(unsafe) public func onLandscape()
+  @_Concurrency.MainActor(unsafe) public func isPortrait() -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) public func executeCommand(command: any Base_swift.PCommand)
+  @_Concurrency.MainActor(unsafe) public func onDispatchCommand(command: any Base_swift.PCommand) -> Swift.Bool
+  @objc deinit
+}
+public protocol PJetContext : AnyObject {
+  func getController() -> Base_swift.BaseViewController
+  func getScreenName() -> Swift.String
+  func showLoading()
+  func hideLoading()
+  func showAlert(msg: Swift.String, type: Swift.String?)
+}
+@_hasMissingDesignatedInitializers open class NotificationNameGenerator {
+  @objc deinit
+}
+open class LiveData<T> : Base_swift.PEqual {
+  public init()
+  public init(initValue: T?)
+  public func equal(to other: Any) -> Swift.Bool
+  public func postValue(value: T?)
+  public func getValue() -> T?
+  public func register(owner: any Base_swift.PLifeCycleOwner, observer: any Base_swift.PObserver)
+  public func remove(observer: any Base_swift.PObserver)
+  public func remove(owner: any Base_swift.PLifeCycleOwner, observer: any Base_swift.PObserver)
+  public func removeAll(owner: any Base_swift.PLifeCycleOwner)
+  @objc deinit
+}
+open class ObserverWrapped<T> : Base_swift.PDestroy {
+  public init(liveData: Base_swift.LiveData<T>, observer: any Base_swift.PObserver)
+  public func equal(to other: Any) -> Swift.Bool
+  public func destroy() -> Swift.Bool
+  public func isMatch(liveData: Base_swift.LiveData<T>) -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class ObserverDispatcher<T> : Base_swift.BaseDispatcher<T?> {
+  public func handleEvent(event: T?) throws
+  public func addObserver(observer: any Base_swift.PObserver)
+  public func removeObserver(observer: any Base_swift.PObserver)
+  @objc deinit
+}
+public protocol PGroupCell {
+  var positionInGroup: Swift.Int { get set }
+  var currentGroup: Base_swift.GroupData! { get set }
+  var groupIndex: Swift.Int { get set }
+}
+@_hasMissingDesignatedInitializers open class DispatchQueueGenerator {
+  @objc deinit
+}
+open class BaseError : Swift.Error {
+  public var code: Swift.String?
+  public var message: Swift.String?
+  public init()
+  public init(code: Swift.String?)
+  public init(message: Swift.String?)
+  public init(code: Swift.String?, message: Swift.String?)
+  @objc deinit
+}
+public enum RUN_MODE {
+  case PARALLEL
+  case SEQUENCE
+  public static func == (a: Base_swift.RUN_MODE, b: Base_swift.RUN_MODE) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers open class Message2 {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class Queue<E> {
+  public func offer(element: E)
+  public func offerFirst(element: E)
+  public func offerAt(index: Swift.Int, element: E)
+  public func poll() -> E?
+  public func size() -> Swift.Int
+  public func elementAt(index: Swift.Int) -> E?
+  public func head() -> E?
+  public func tail() -> E?
+  public func isEmpty() -> Swift.Bool
+  @objc deinit
+}
+open class EventMap {
+  public init()
+  public func config()
+  public func fire<E>(eventType: E.Type) -> Base_swift.EventMap.Builder where E : Base_swift.NotificationEvent
+  public func addEventMap(child: Base_swift.EventMap)
+  public func getEventInfoList() -> Base_swift.List<Base_swift.EventInfo>
+  @_hasMissingDesignatedInitializers public class Builder {
+    @objc deinit
+  }
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class Stack<E> : Base_swift.PStack {
+  public typealias T = E
+  public func push(value: E)
+  public func pop() -> E
+  public func peek() -> E
+  public func size() -> Swift.Int
+  public func remove(index: Swift.Int)
+  public func isEmpty() -> Swift.Bool
+  public func toArray() -> [E]
+  public func remove(element: E)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class EventBus {
+  public func attachMap(map: Base_swift.EventMap)
+  public func notifyActive(subscriber: any Base_swift.PEventHandler)
+  public func notifyInactive(subscriber: any Base_swift.PEventHandler)
+  public func register(handler: any Base_swift.PEventHandler)
+  public func register(id: Swift.String, handler: any Base_swift.PEventHandler)
+  public func unregister(id: Swift.String)
+  public func unregister(handler: any Base_swift.PEventHandler)
+  public func post(event: Base_swift.NotificationEvent)
+  public func postPending(event: Base_swift.NotificationEvent)
+  public func clearAllPendingEventForSubscriber(subscriber: any Base_swift.PEventHandler)
+  public func removeEvent(event: Base_swift.NotificationEvent)
+  public func hasRegistered(id: Swift.String) -> Swift.Bool
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class BusDispatcher : Base_swift.MessageDispatcher {
+  @objc deinit
+}
+public protocol PFeature {
+  func match() -> Swift.Bool
+  func interceptCommands() -> [any Base_swift.PCommand.Type]
+}
+public protocol PCommand {
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class JetUIPageChildViewController<V> : Base_swift.MVPPageChildController<V>, Base_swift.PJetContext where V : Base_swift.MVPUIPageView {
+  @_Concurrency.MainActor(unsafe) override public func onInterceptCommand(command: any Base_swift.PCommand) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) override public func addChildPresenter(child: any Base_swift.PChildPresenter, tag: Swift.String?)
+  @_Concurrency.MainActor(unsafe) public func getController() -> Base_swift.BaseViewController
+  @_Concurrency.MainActor(unsafe) public func getScreenName() -> Swift.String
+  @_Concurrency.MainActor(unsafe) public func showLoading()
+  @_Concurrency.MainActor(unsafe) public func hideLoading()
+  @_Concurrency.MainActor(unsafe) public func showAlert(msg: Swift.String, type: Swift.String?)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CollectionViewDelegateProxy : ObjectiveC.NSObject, UIKit.UICollectionViewDelegate {
+  @_Concurrency.MainActor(unsafe) open func addDelegate(_ delegate: Base_swift.CollectionViewDelegate)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+extension Base_swift.CollectionViewDelegateProxy : UIKit.UICollectionViewDelegateFlowLayout {
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, insetForSectionAt section: Swift.Int) -> UIKit.UIEdgeInsets
+  @_Concurrency.MainActor(unsafe) @objc dynamic open func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, minimumLineSpacingForSectionAt section: Swift.Int) -> CoreFoundation.CGFloat
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CollectionViewDelegate : ObjectiveC.NSObject, UIKit.UICollectionViewDelegate {
+  public enum TYPE {
+    case FOOTER
+    case DID_SCROLL
+    case INSET_SECTION
+    case ITEM_SEPARATOR
+    case ITEM_SIZE
+    public static func == (a: Base_swift.CollectionViewDelegate.TYPE, b: Base_swift.CollectionViewDelegate.TYPE) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor(unsafe) open func getType() -> Base_swift.CollectionViewDelegate.TYPE?
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CollectionViewInsetDelegate : Base_swift.CollectionViewDelegate {
+  @_Concurrency.MainActor(unsafe) override open func getType() -> Base_swift.CollectionViewDelegate.TYPE
+  @_Concurrency.MainActor(unsafe) open func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, insetForSectionAt section: Swift.Int) -> UIKit.UIEdgeInsets
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CollectionViewSpaceItemDelegate : Base_swift.CollectionViewDelegate {
+  @_Concurrency.MainActor(unsafe) override open func getType() -> Base_swift.CollectionViewDelegate.TYPE?
+  @_Concurrency.MainActor(unsafe) open func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, minimumLineSpacingForSectionAt section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class CollectionViewItemSizeDelegate : Base_swift.CollectionViewDelegate {
+  @_Concurrency.MainActor(unsafe) override open func getType() -> Base_swift.CollectionViewDelegate.TYPE?
+  @_Concurrency.MainActor(unsafe) open func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class ActionEnqueueExecutor : Base_swift.MessageHandler, Base_swift.PActionEnqueueExecutor {
+  public func onHandleEvent(event: Base_swift.Message2) throws
+  public func enqueueExecute(queue: Base_swift.ActionQueue)
+  override public init(looper: Base_swift.Looper)
+  @objc deinit
+}
+open class AsyncScheduler : Base_swift.PActionScheduler {
+  @objc deinit
+  public init(retryCount: Swift.Int = 0)
+  public init(inConcurrent: Swift.Bool, retryCount: Swift.Int = 0)
+  public func execute(action: Base_swift.BaseAction)
+  public func stop(action: Base_swift.BaseAction)
+}
+open class AsyncPublisher : Base_swift.POnEventPublisher {
+  public init(action: Base_swift.BaseAction)
+  public func onPublishEvent(event: Any)
+  @objc deinit
+}
+public protocol PParentPresenter : Base_swift.PPresenter {
+  func getChildrenPresenter() -> Base_swift.List<any Base_swift.PChildPresenter>
+  func addChildPresenter(child: any Base_swift.PChildPresenter, tag: Swift.String?)
+  func readyChild(childTag: Swift.String)
+  func removeChildPresenter(child: any Base_swift.PChildPresenter)
+  func removeChildPresenter(tag: Swift.String)
+  func dispatchToChildrent(command: any Base_swift.PCommand, tags: Swift.String...)
+  func findPresenterByTag(tag: Swift.String) -> (any Base_swift.PChildPresenter)?
+  func onInterceptDispatchToChildren(command: any Base_swift.PCommand) -> Swift.Bool
+}
+public protocol PActionManager : Base_swift.PEqual {
+  func getID() -> Swift.String
+  func getStatus() -> Base_swift.ACTION_MANAGER_STATUS
+  func setStatus(status: Base_swift.ACTION_MANAGER_STATUS)
+  func pause()
+  func resume()
+  func release()
+  func releaseAndStopAllAction()
+  func stopAction(action: Base_swift.BaseAction)
+  func stopAction(actionID: Swift.String)
+  func stopAction<T>(actionType: T.Type) where T : Base_swift.BaseAction
+  func execute(action: Base_swift.BaseAction, input: Any, callback: Base_swift.ActionCallback?, scheduler: any Base_swift.PActionScheduler) -> any Base_swift.PActionBuilder
+  func registerCallback(actionID: Swift.String, callback: Base_swift.ActionCallback)
+}
+public enum ACTION_MANAGER_STATUS {
+  case RESUME
+  case PAUSE
+  case RELEASE
+  public static func == (a: Base_swift.ACTION_MANAGER_STATUS, b: Base_swift.ACTION_MANAGER_STATUS) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_hasMissingDesignatedInitializers open class ActionQueue : Base_swift.PEqual {
+  @objc deinit
+  public func equal(to other: Any) -> Swift.Bool
+  public func compound(callback: Base_swift.CompoundCallback?)
+  public func onCompound(callback: Base_swift.CompoundCallback)
+  public func findActionQueueInfoByID(actionID: Swift.String) -> Base_swift.ActionQueueInfo?
+  public func add(actionManagerID: Swift.String, action: Base_swift.BaseAction, callbackInfoList: Base_swift.List<Base_swift.ActionCallbackInfo>, scheduler: any Base_swift.PActionScheduler)
+  public func isEmpty() -> Swift.Bool
+  public func getRunMode() -> Base_swift.RUN_MODE
+  public func getFirstPendingAction() -> Base_swift.ActionQueueInfo?
+  public func getActionEnqueueInfoList() -> Base_swift.List<Base_swift.ActionQueueInfo>
+  public func startAction(action: Base_swift.BaseAction)
+  public func success(action: Base_swift.BaseAction)
+  public func error(action: Base_swift.BaseAction)
+  public func progress(action: Base_swift.BaseAction)
+  public func resume(manager: any Base_swift.PActionManager)
+  public func interrupt(action: Base_swift.BaseAction)
+  public func onStartAction(action: Base_swift.BaseAction)
+  public func onSuccess(action: Base_swift.BaseAction)
+  public func onError(action: Base_swift.BaseAction)
+  public func onProgressAction(action: Base_swift.BaseAction)
+  public func onResume(manager: any Base_swift.PActionManager)
+  public func onInterruptAction(action: Base_swift.BaseAction)
+  public func isValid() -> Swift.Bool
+  public func getActionQueueInfoCached() -> Base_swift.List<Base_swift.ActionQueueInfo>
+  public func getParallelCallback() -> Base_swift.CompoundCallback?
+  public func removeCallback(manager: any Base_swift.PActionManager)
+  public func isFinishAll() -> Swift.Bool
+  public func isDetachAllActionManager() -> Swift.Bool
+  public func releaseImmediately(manager: any Base_swift.PActionManager)
+}
+@objc @_inheritsConvenienceInitializers open class GroupDataSource : ObjectiveC.NSObject {
+  open var groupDatas: Base_swift.List<Base_swift.GroupData>
+  open var activeGroupDatas: Base_swift.List<Base_swift.GroupData>
+  open var listView: Base_swift.GroupListView?
+  open func getRegisteredCellTypes() -> [Swift.AnyClass]
+  open func addGroup(groupData: Base_swift.GroupData)
+  open func addGroup(at index: Swift.Int, groupData: Base_swift.GroupData)
+  open func removeGroup(groupData: Base_swift.GroupData)
+  open func notifyRemoveGroup(groupData: Base_swift.GroupData)
+  open func notifyGroupChanged(groupData: Base_swift.GroupData, oldCount: Swift.Int, newCount: Swift.Int)
+  open func notifyGroupChange(groupData: Base_swift.GroupData)
+  open func findGroupData(at position: Swift.Int) -> Base_swift.GroupData?
+  open func findOriginIndex(of groupData: Base_swift.GroupData) -> Swift.Int?
+  open func findActiveIndex(of groupData: Base_swift.GroupData) -> Swift.Int?
+  open func reloadSection(groupData: Base_swift.GroupData, animation: UIKit.UITableView.RowAnimation)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class ActionCallback {
+  public func start()
+  public func startError()
+  public func publishProgress(event: Any)
+  public func success(result: Any?)
+  public func error(e: Base_swift.ActionError)
+  public func interrupt()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class OnActionCallback<O> : Base_swift.ActionCallback {
+  override public func start()
+  override public func startError()
+  override public func publishProgress(event: Any)
+  override public func success(result: Any?)
+  override public func error(e: Base_swift.ActionError)
+  override public func interrupt()
+  public func onStart()
+  public func onStartError()
+  public func onPublishProgress(event: Any)
+  public func onSuccess(result: O?)
+  public func onError(e: Base_swift.ActionError)
+  public func onInterrupt()
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) open class MVPPageViewController<V> : Base_swift.MVPViewController<V> where V : Base_swift.MVPUIPageView {
+  @_Concurrency.MainActor(unsafe) override open func onPresenterReady()
+  @_Concurrency.MainActor(unsafe) override open func destroy()
+  @_Concurrency.MainActor(unsafe) open func setDataSource(_ pageDataSource: Base_swift.StatePageDataSource)
+  @_Concurrency.MainActor(unsafe) open func setCurrentPosition(_ position: Swift.Int)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class PathFinder<T> {
+  public func findFirst<N>(spec: Base_swift.Specification<N>, fromRoot: N) -> N? where N : Base_swift.Node<T>
+  public func findPath<N>(spec: Base_swift.Specification<N>, fromRoot: N) -> [N] where N : Base_swift.Node<T>
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class BreadthFinder<T> : Base_swift.PathFinder<T> {
+  override public func findFirst<N>(spec: Base_swift.Specification<N>, fromRoot: N) -> N? where N : Base_swift.Node<T>
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class DepthFinder<T> : Base_swift.PathFinder<T> {
+  override public func findFirst<N>(spec: Base_swift.Specification<N>, fromRoot: N) -> N? where N : Base_swift.Node<T>
+  @objc deinit
+}
+@_inheritsConvenienceInitializers open class Feature<V> : Base_swift.SimplePresenter<V>, Base_swift.PFeature where V : Base_swift.PView {
+  public func match() -> Swift.Bool
+  override public func presenterReady()
+  public func interceptCommands() -> [any Base_swift.PCommand.Type]
+  public func stop()
+  public func onInterceptCommands() -> [any Base_swift.PCommand.Type]
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class State {
+  open var name: Swift.String!
+  open func enter()
+  open func exit()
+  open func handle(params: [Any?]) -> Swift.Bool
+  open func transitFrom(name: Swift.String?)
+  open func transitTo(name: Swift.String)
+  @objc deinit
+}
+public protocol PParentCommand : Base_swift.PCommand {
+}
+@_inheritsConvenienceInitializers open class ActionHandler2 : Base_swift.MessageHandler {
+  override public init(looper: Base_swift.Looper)
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers open class NotificationEvent : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+public protocol PPresenter : Base_swift.PCommandExecutor, Base_swift.PEqual {
+  func presenterReady()
+  func presenterRelease()
+  func setMVPView(view: any Base_swift.PView)
+  func onInterceptCommand(command: any Base_swift.PCommand) -> Swift.Bool
+}
+@_hasMissingDesignatedInitializers open class ListIterator<E> : Base_swift.Iterator<E> {
+  override public func hasNext() -> Swift.Bool
+  override public func next() -> E
+  override public func remove()
+  @objc deinit
+}
+public protocol PIDGenerator {
+  func generate(action: Base_swift.BaseAction) -> Swift.String
+}
+@_hasMissingDesignatedInitializers open class IDGenerator : Base_swift.PIDGenerator {
+  public func generate(action: Base_swift.BaseAction) -> Swift.String
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers open class BaseDispatcher<T> : Base_swift.Dispatcher<T> {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers open class JetActionCallback<T> : Base_swift.SimpleCallback<T> {
+  public init(context: any Base_swift.PJetContext, onSuccess: @escaping ((T?) throws -> Swift.Void), onError: ((Base_swift.ActionError) throws -> Swift.Void)? = nil, onStart: (() -> Swift.Void)? = nil)
+  override public func onError(e: Base_swift.ActionError)
+  @objc deinit
+}
+extension Base_swift.ACTION_MSG_TYPE : Swift.Equatable {}
+extension Base_swift.ACTION_MSG_TYPE : Swift.Hashable {}
+extension Base_swift.ACTION_MSG_TYPE : Swift.RawRepresentable {}
+extension Base_swift.TableViewDelegate.TYPE : Swift.Equatable {}
+extension Base_swift.TableViewDelegate.TYPE : Swift.Hashable {}
+extension Base_swift.CellData.CellState : Swift.Equatable {}
+extension Base_swift.CellData.CellState : Swift.Hashable {}
+extension Base_swift.PVIEW_STATUS : Swift.Equatable {}
+extension Base_swift.PVIEW_STATUS : Swift.Hashable {}
+extension Base_swift.BaseViewController.VISIBLE_STATUS : Swift.Equatable {}
+extension Base_swift.BaseViewController.VISIBLE_STATUS : Swift.Hashable {}
+extension Base_swift.BaseAction.STATUS : Swift.Equatable {}
+extension Base_swift.BaseAction.STATUS : Swift.Hashable {}
+extension Base_swift.RUN_MODE : Swift.Equatable {}
+extension Base_swift.RUN_MODE : Swift.Hashable {}
+extension Base_swift.CollectionViewDelegate.TYPE : Swift.Equatable {}
+extension Base_swift.CollectionViewDelegate.TYPE : Swift.Hashable {}
+extension Base_swift.ACTION_MANAGER_STATUS : Swift.Equatable {}
+extension Base_swift.ACTION_MANAGER_STATUS : Swift.Hashable {}

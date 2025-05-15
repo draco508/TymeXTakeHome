@@ -1,0 +1,29 @@
+PODS:
+  - Alamofire (5.10.2)
+  - Base_swift (1.0.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - Base_swift (from `https://github.com/draco508/BaseMVP.git`, tag `1.0.0`)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+
+EXTERNAL SOURCES:
+  Base_swift:
+    :git: https://github.com/draco508/BaseMVP.git
+    :tag: 1.0.0
+
+CHECKOUT OPTIONS:
+  Base_swift:
+    :git: https://github.com/draco508/BaseMVP.git
+    :tag: 1.0.0
+
+SPEC CHECKSUMS:
+  Alamofire: 7193b3b92c74a07f85569e1a6c4f4237291e7496
+  Base_swift: 911e4e41255aa5e837db632aed314522123e1764
+
+PODFILE CHECKSUM: b4afed7aca833fa338a3645158739dec605a3a8f
+
+COCOAPODS: 1.16.2

@@ -2,7 +2,7 @@
 //  TymeXTakeHomeTests.swift
 //  TymeXTakeHomeTests
 //
-//  Created by REACT PLUS on 14/5/25.
+//  Created by NguyenNV on 14/5/25.
 //
 
 import XCTest

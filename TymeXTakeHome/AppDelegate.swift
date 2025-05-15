@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TymeXTakeHome
 //
-//  Created by REACT PLUS on 14/5/25.
+//  Created by NguyenNV on 14/5/25.
 //
 
 import UIKit
@@ -14,6 +14,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        
+        // Remove back button title
+        appearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
+        
+        // Change back icon
+        let backImage = UIImage(named: "ic_back")?.withRenderingMode(.alwaysOriginal).withTintColor(.darkGray)
+        appearance.setBackIndicatorImage(backImage, transitionMaskImage: backImage)
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        
         return true
     }
 

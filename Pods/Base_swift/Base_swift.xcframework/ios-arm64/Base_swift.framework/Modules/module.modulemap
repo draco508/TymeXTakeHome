@@ -1,0 +1,11 @@
+framework module Base_swift {
+  umbrella header "Base_swift.h"
+  export *
+
+  module * { export * }
+}
+
+module Base_swift.Swift {
+  header "Base_swift-Swift.h"
+  requires objc
+}
