@@ -1,9 +1,8 @@
 //
 //  AttributedStringMaker.swift
-//  Finhay
+//   
 //
 //  Created by NGUYENNV on 10/03/2021.
-//  Copyright © 2021 Finhay CoLtd. All rights reserved.
 //
 
 import UIKit

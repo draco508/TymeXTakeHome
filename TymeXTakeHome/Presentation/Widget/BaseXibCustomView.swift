@@ -2,7 +2,7 @@
 //  BaseCustomView.swift
 //  TestApp
 //
-//  Created by ph quang on 26/02/2022.
+//  Created by NguyenNV on 26/02/2022.
 //
 
 import Foundation

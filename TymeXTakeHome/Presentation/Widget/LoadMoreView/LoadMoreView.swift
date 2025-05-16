@@ -1,9 +1,8 @@
 //
 //  LoadMoreView2.swift
-//  Finhay
+//   
 //
 //  Created by admin on 18/04/2022.
-//  Copyright © 2022 Finhay CoLtd. All rights reserved.
 //
 
 import UIKit
