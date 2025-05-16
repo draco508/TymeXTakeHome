@@ -10,8 +10,14 @@ import Base_swift
 
 class GetListUserAction: Action<GetListUserAction.RV, DataPage<GitHubUser>> {
     
-    override func onExecute(input: RV) throws -> DataPage<GitHubUser>? {
-        return try RepoFactory.getGithubUserRepo().getListUser(perPage: input.perPage, since: input.since)
+    private var factory: PFactory
+    
+    init(_ factory: PFactory = RepoFactory()) {
+        self.factory = factory
+    }
+    
+    override func onExecute(input: RV) throws -> DataPage<GitHubUser> {
+        return try factory.getGithubUserRepo().getListUser(perPage: input.perPage, since: input.since)
     }
     
     struct RV {

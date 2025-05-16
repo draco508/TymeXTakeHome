@@ -44,8 +44,9 @@ class ListUserViewController: JetUIViewController<ListUserView> {
             self.hideLoading()
             self.mvpView.updateListUser(d.dataList, hasLoadMore)
             self.since = d.dataList.last?.id ?? 100
-        }, onError: { err in
-            self.hideLoading()
+        }, onError: { [weak self] err in
+            self?.hideLoading()
+            self?.showAlert(title: "Error", message: err.message ?? "")
         })
         
         showLoading()

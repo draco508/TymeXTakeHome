@@ -32,8 +32,9 @@ class UserDetailViewController: JetUIViewController<UserDetailView>  {
             guard let self = self, let d = data else {return}
             self.hideLoading()
             self.mvpView.updateUserDetail(d)
-        }, onError: { err in
-            self.hideLoading()
+        }, onError: { [weak self] err in
+            self?.hideLoading()
+            self?.showAlert(title: "Error", message: err.message ?? "")
         })
         
         showLoading()

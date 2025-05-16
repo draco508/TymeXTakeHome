@@ -11,7 +11,7 @@ import Base_swift
 class GetUserDetailAction: Action<GetUserDetailAction.RV, GitHubUser> {
     
     override func onExecute(input: RV) throws -> GitHubUser? {
-        return try RepoFactory.getGithubUserRepo().getUserDetail(userName: input.userName)
+        return try RepoFactory().getGithubUserRepo().getUserDetail(userName: input.userName)
     }
     
     struct RV {

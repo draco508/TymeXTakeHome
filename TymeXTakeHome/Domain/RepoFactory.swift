@@ -7,9 +7,13 @@
 
 import Foundation
 
-class RepoFactory {
+protocol PFactory {
+    func getGithubUserRepo() -> PGithubUserRepo
+}
+
+class RepoFactory: PFactory {
     
-    class func getGithubUserRepo() -> PGithubUserRepo {
+    func getGithubUserRepo() -> PGithubUserRepo {
         return GitHubUserRepoImpl()
     }
 }
