@@ -12,33 +12,28 @@ class GitHubUserRepoImpl: PGithubUserRepo {
     
     private let apiService = ApiServiceImpl()
     
-    func getListUser(perPage: Int, since: Int) throws -> DataPage<GitHubUser> {
+    func getListUser(perPage: Int, since: Int) throws -> [GitHubUser] {
         let request = GetListUserRequest(perPage: perPage, since: since)
-        let response: [GitHubUserData]? = try apiService.requestNonStructure(request: request)
+        let response: [GitHubUserData]? = try apiService.request(request: request)
         
         if let rs = response {
-            let dataPage = DataPage<GitHubUser>()
-            
-            dataPage.dataList = rs.compactMap({
+           
+            return rs.compactMap({
                 return GithubUserDataToGithubUser().convert(input: $0)
             })
-            dataPage.perPage = perPage
-            dataPage.hasNextPage = rs.count > perPage
-            
-            return dataPage
         } else {
-            throw BaseError(code: nil, message: "data nil")
+            throw BaseError(code: "404", message: "Not found")
         }
     }
     
     func getUserDetail(userName: String) throws -> GitHubUser {
         let request = GetUserDetailRequest(userName: userName)
-        let response: GitHubUserDetailData? = try apiService.requestNonStructure(request: request)
+        let response: GitHubUserDetailData? = try apiService.request(request: request)
         
         if let rs = response {
             return GithubUserDetailDataToGithubUserDetail().convert(input: rs)
         } else {
-            throw BaseError(code: nil, message: "data nil")
+            throw BaseError(code: "404", message: "Not found")
         }
     }
     

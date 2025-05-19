@@ -10,7 +10,7 @@ import Base_swift
 
 class ListUserView: MVPUIView {
 
-    @IBOutlet weak var tbvListUser: LoadMoreTableView!
+    @IBOutlet weak var tbvListUser: UITableView!
     
     private var datasource = ListUserDataSource()
     
@@ -20,21 +20,11 @@ class ListUserView: MVPUIView {
         datasource.registerDataSource(tableView: tbvListUser)
         datasource.presenter = presenter
         
-        tbvListUser.addLoadMore { [weak self] in
-            guard let self = self else {return}
-            self.presenter?.executeCommand(command: LoadMoreCmd())
-        }
     }
     
-    func updateListUser(_ users: [GitHubUser], _ hasLoadMore: Bool = false) {
-        if !hasLoadMore {
-            datasource.reset(data: users)
-        } else {
-            datasource.add(data: users)
-        }
-        
+    func updateListUser(_ users: [GitHubUser]) {
+        datasource.reset(data: users)
         tbvListUser.reloadData()
     }
 
-    struct LoadMoreCmd: PCommand {}
 }

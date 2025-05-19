@@ -2,118 +2,38 @@
 //  GetListUserActionTests.swift
 //  TymeXTakeHomeTests
 //
-//  Created by REACT PLUS on 16/5/25.
+//  Created by  NguyenNV on 16/5/25.
 //
 
 import Base_swift
 import XCTest
 @testable import TymeXTakeHome
 
-class MockRepoFactory: PFactory {
-    
-    private var type: Int
-    
-    init(type: Int) {
-        self.type = type
-    }
-    
-    func getGithubUserRepo() -> any TymeXTakeHome.PGithubUserRepo {
-        return MockRepo(type: type)
-    }
-    
-}
-
-class MockRepo: PGithubUserRepo {
-    
-    private var type: Int
-    
-    init(type: Int) {
-        self.type = type
-    }
-    
-    func getListUser(perPage: Int, since: Int) throws -> TymeXTakeHome.DataPage<TymeXTakeHome.GitHubUser> {
-        let page = TymeXTakeHome.DataPage<TymeXTakeHome.GitHubUser>()
-        
-        switch type {
-        case -1:
-            throw BaseError(code: "404", message: "Not found")
-        case 0:
-            var users: [GitHubUser] = []
-            
-            for i in 1...20 {
-                let user = GitHubUser()
-                user.login = "A_\(i)"
-                user.id = i
-                user.htmlURL = "abc.com"
-                users.append(user)
-            }
-            
-            page.dataList = users
-            page.perPage = 100
-            page.hasNextPage = true
-            
-            return page
-        case 1:
-            
-            var users: [GitHubUser] = []
-            
-            for i in 1...15 {
-                let user = GitHubUser()
-                user.login = "A_\(i)"
-                user.id = i
-                user.htmlURL = "abc.com"
-                users.append(user)
-            }
-            
-            page.dataList = users
-            page.perPage = 100
-            page.hasNextPage = false
-            return page
-        default:
-            page.perPage = -1
-            page.currentPage = -1
-            return page
-        }
-        
-    }
-    
-    func getUserDetail(userName: String) throws -> TymeXTakeHome.GitHubUser {
-        return TymeXTakeHome.GitHubUser()
-    }
-    
-}
-
 final class GetListUserActionTests: XCTestCase {
     
-   
-
-    func testFullPage() throws {
+    func testFullListUser() throws {
         
-        let datapage = try GetListUserAction(MockRepoFactory(type: 0)).onExecute(input: GetListUserAction.RV(perPage: 100, since: 20))
-        
-        XCTAssertEqual(datapage.perPage, 100)
-        XCTAssertEqual(datapage.dataList.count, 20)
-        XCTAssertEqual(datapage.hasNextPage, true)
+        let listUser = try GetListUserUsecase(MockRepo(stage: .full)).onExecute(input: GetListUserUsecase.RV(perPage: 100, since: 20))
+        XCTAssertEqual(listUser.count, 20)
+       
     }
     
-    func testNotFullPage() throws {
-        let datapage = try GetListUserAction(MockRepoFactory(type: 1)).onExecute(input: GetListUserAction.RV(perPage: 100, since: 20))
+    func testNotFullListUser() throws {
+        let listUser = try GetListUserUsecase(MockRepo(stage: .notFull)).onExecute(input: GetListUserUsecase.RV(perPage: 100, since: 20))
         
-        XCTAssertEqual(datapage.perPage, 100)
-        XCTAssertLessThan(datapage.dataList.count, 20)
-        XCTAssertEqual(datapage.hasNextPage, false)
+        
+        XCTAssertLessThan(listUser.count, 20)
+        
     }
     
-    func testGetPageFail() throws {
+    func testGetListUserFail() throws {
         
         do {
-            try? GetListUserAction(MockRepoFactory(type: -1)).onExecute(input: GetListUserAction.RV(perPage: 100, since: 20))
+            _ = try GetListUserUsecase(MockRepo(stage: .fail)).onExecute(input: GetListUserUsecase.RV(perPage: 100, since: 20))
         } catch {
             
             XCTAssertTrue(error is BaseError)
         }
-        
-        
         
     }
 

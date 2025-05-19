@@ -20,8 +20,11 @@ class UserCell: TableCell<GitHubUser> {
     
     override func initCell() {
         
+        vRounded.addShadow()
+        
         ivAvatar.layer.cornerRadius = ivAvatar.frame.size.width / 2
         ivAvatar.clipsToBounds = true
+        
         lbUrl.setOnClickedListener { [weak self] in
             guard let self = self, let data = self.currentData as? GitHubUser else {return}
             if let htmlURL = data.htmlURL {
@@ -29,7 +32,6 @@ class UserCell: TableCell<GitHubUser> {
             }
         }
         
-        vRounded.addShadow()
     }
     
     override func onBind(data: GitHubUser?) {

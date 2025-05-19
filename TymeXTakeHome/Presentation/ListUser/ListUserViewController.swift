@@ -28,30 +28,24 @@ class ListUserViewController: JetUIViewController<ListUserView> {
             navigateToUserDetail(cmd.user)
         }
         
-        if command is ListUserView.LoadMoreCmd {
-            getListUser(true)
-        }
+        
     }
     
-    private func getListUser(_ hasLoadMore: Bool = false) {
+    private func getListUser() {
         
-        if !hasLoadMore {
-            since = 100
-        }
-        
-        let callback = JetActionCallback<DataPage<GitHubUser>>(context: self, onSuccess: {[weak self] data in
+        let callback = JetActionCallback<[GitHubUser]>(context: self, onSuccess: {[weak self] data in
             guard let self = self, let d = data else {return}
             self.hideLoading()
-            self.mvpView.updateListUser(d.dataList, hasLoadMore)
-            self.since = d.dataList.last?.id ?? 100
+            self.mvpView.updateListUser(d)
+            
         }, onError: { [weak self] err in
             self?.hideLoading()
             self?.showAlert(title: "Error", message: err.message ?? "")
         })
         
         showLoading()
-        actionManager.execute(action: GetListUserAction(),
-                              input: GetListUserAction.RV(perPage: perPage, since: since),
+        actionManager.execute(action: GetListUserUsecase(),
+                              input: GetListUserUsecase.RV(perPage: perPage, since: since),
                               callback: callback,
                               scheduler: AsyncScheduler(inConcurrent: true))
         .run()
@@ -66,6 +60,6 @@ class ListUserViewController: JetUIViewController<ListUserView> {
     private func navigateToUserDetail(_ user: GitHubUser) {
         let vc = UserDetailViewController()
         vc.user = user
-        navi(to: vc)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

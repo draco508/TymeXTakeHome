@@ -38,8 +38,8 @@ class UserDetailViewController: JetUIViewController<UserDetailView>  {
         })
         
         showLoading()
-        actionManager.execute(action: GetUserDetailAction(),
-                              input: GetUserDetailAction.RV(userName: userName),
+        actionManager.execute(action: GetUserDetailUsecase(),
+                              input: GetUserDetailUsecase.RV(userName: userName),
                               callback: callback,
                               scheduler: AsyncScheduler(inConcurrent: true))
         .run()

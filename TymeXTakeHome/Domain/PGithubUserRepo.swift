@@ -8,6 +8,6 @@
 import Foundation
 
 protocol PGithubUserRepo: PRepo {
-    func getListUser(perPage: Int, since: Int) throws -> DataPage<GitHubUser>
+    func getListUser(perPage: Int, since: Int) throws -> [GitHubUser]
     func getUserDetail(userName: String) throws -> GitHubUser
 }
